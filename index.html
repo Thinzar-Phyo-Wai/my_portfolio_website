@@ -1,0 +1,1254 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Thinzar Phyo Wai | IT Engineer</title>
+  <meta name="description" content="Portfolio of Thinzar Phyo Wai, a Computing student and aspiring Junior IT Engineer specializing in software development, databases, AI and web technologies." />
+  <meta name="author" content="Thinzar Phyo Wai" />
+  <meta name="theme-color" content="#0A0A0F" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Thinzar Phyo Wai | IT Engineer" />
+  <meta property="og:description" content="Portfolio of Thinzar Phyo Wai — IT Engineer candidate specializing in software, systems, databases and AI." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0F'/%3E%3Cpath d='M18 22h28M32 22v22' stroke='%238B5CF6' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='46' cy='42' r='4' fill='%2306B6D4'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ink: { DEFAULT: '#0A0A0F', card: '#111118', border: '#272733' },
+            accent: { DEFAULT: '#8B5CF6', cyan: '#06B6D4' },
+            textc: { DEFAULT: '#F5F5F5', muted: '#A1A1AA' },
+            lightc: { bg: '#FAFAFB', card: '#FFFFFF', border: '#E5E7EB', text: '#0A0A0F', muted: '#52525B' },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Menlo', 'monospace'],
+          },
+          boxShadow: {
+            glow: '0 0 40px -10px rgba(139, 92, 246, 0.35)',
+            soft: '0 10px 40px -15px rgba(0, 0, 0, 0.5)',
+          },
+          backgroundImage: {
+            'grid-dark': 'linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)',
+            'grid-light': 'linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px)',
+          },
+          keyframes: {
+            pulseDot: {
+              '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+              '50%': { opacity: '0.5', transform: 'scale(1.4)' },
+            },
+            gradientShift: {
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '50%': { transform: 'translate(30px, -20px) scale(1.1)' },
+            },
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(24px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+          animation: {
+            'pulse-dot': 'pulseDot 2s ease-in-out infinite',
+            'gradient-shift': 'gradientShift 18s ease-in-out infinite',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html, body { overflow-x: hidden; max-width: 100vw; }
+    body { transition: background-color 300ms ease, color 300ms ease; }
+    *:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px #8B5CF6, 0 0 0 4px rgba(139, 92, 246, 0.35);
+      border-radius: 8px;
+    }
+
+    /* ==== PAGE-WIDE LIGHT THEME WASH ==== */
+    body {
+      background-image:
+        radial-gradient(1200px 600px at 15% 0%, rgba(139, 92, 246, 0.08), transparent 60%),
+        radial-gradient(900px 500px at 100% 10%, rgba(6, 182, 212, 0.08), transparent 55%),
+        radial-gradient(800px 500px at 50% 100%, rgba(139, 92, 246, 0.06), transparent 60%);
+      background-attachment: fixed;
+    }
+    html.dark body {
+      background-image: none;
+    }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 100ms; }
+    .reveal-delay-2 { transition-delay: 200ms; }
+    .reveal-delay-3 { transition-delay: 300ms; }
+    .reveal-delay-4 { transition-delay: 400ms; }
+    .reveal-delay-5 { transition-delay: 500ms; }
+    .reveal-delay-6 { transition-delay: 600ms; }
+
+    @keyframes heroIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-in { opacity: 0; animation: heroIn 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .hero-in-1 { animation-delay: 0ms; }
+    .hero-in-2 { animation-delay: 150ms; }
+    .hero-in-3 { animation-delay: 300ms; }
+    .hero-in-4 { animation-delay: 450ms; }
+    .hero-in-5 { animation-delay: 600ms; }
+    .hero-in-6 { animation-delay: 750ms; }
+    .hero-terminal { animation-delay: 500ms; }
+
+    @keyframes blink { 50% { opacity: 0; } }
+    .cursor-blink { animation: blink 1s step-end infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .hero-in { opacity: 1 !important; animation: none !important; }
+    }
+
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.35); border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(139, 92, 246, 0.55); }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+    .focus\:not-sr-only:focus {
+      position: fixed; width: auto; height: auto; padding: 0.5rem 1rem; margin: 0;
+      overflow: visible; clip: auto; white-space: normal;
+    }
+
+    #mobile-menu { transform: translateY(-12px); opacity: 0; pointer-events: none; transition: opacity 250ms ease, transform 250ms ease; }
+    #mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+
+    /* ==== GRADIENT UTILITIES ==== */
+    .btn-gradient {
+      background-image: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 45%, #06B6D4 100%);
+    }
+    .btn-gradient:hover {
+      background-image: linear-gradient(135deg, #7C3AED 0%, #6D28D9 45%, #0891B2 100%);
+    }
+    .outline-gradient {
+      position: relative;
+      background:
+        linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+        linear-gradient(135deg, #8B5CF6, #06B6D4) border-box;
+      border: 1px solid transparent;
+    }
+    html.dark .outline-gradient {
+      background:
+        linear-gradient(#111118, #111118) padding-box,
+        linear-gradient(135deg, #8B5CF6, #06B6D4) border-box;
+    }
+    .section-glow-light {
+      background-image:
+        radial-gradient(600px 300px at 10% 0%, rgba(139,92,246,0.10), transparent 60%),
+        radial-gradient(600px 300px at 90% 100%, rgba(6,182,212,0.10), transparent 60%);
+    }
+    html.dark .section-glow-light {
+      background-image: none;
+    }
+
+    /* ==== CONTACT PANEL (fixed for dark mode) ==== */
+    .contact-panel {
+      background-image: linear-gradient(135deg, #FFFFFF 0%, #F5F0FF 45%, #EAFBFF 100%);
+      border-color: #E5E7EB;
+    }
+    html.dark .contact-panel {
+      background-image: linear-gradient(135deg, #111118 0%, #15121F 55%, #0E1A20 100%);
+      border-color: #272733;
+    }
+
+    /* ==== GRADIENT BORDERS — LIGHT THEME ONLY ==== */
+    html:not(.dark) .card-gradient-border {
+      position: relative;
+      background:
+        linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+        linear-gradient(135deg, rgba(139,92,246,0.55), rgba(217,70,239,0.35), rgba(6,182,212,0.55)) border-box;
+      border: 1px solid transparent;
+      transition: background 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+    }
+    html:not(.dark) .card-gradient-border:hover {
+      background:
+        linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+        linear-gradient(135deg, rgba(139,92,246,0.95), rgba(217,70,239,0.65), rgba(6,182,212,0.95)) border-box;
+      box-shadow: 0 20px 60px -20px rgba(139,92,246,0.25);
+    }
+
+    html:not(.dark) .chip-gradient-border {
+      background:
+        linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+        linear-gradient(135deg, rgba(139,92,246,0.45), rgba(6,182,212,0.45)) border-box;
+      border: 1px solid transparent;
+      transition: background 200ms ease, color 200ms ease;
+    }
+    html:not(.dark) .chip-gradient-border:hover {
+      background:
+        linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+        linear-gradient(135deg, rgba(139,92,246,0.9), rgba(6,182,212,0.9)) border-box;
+    }
+  </style>
+
+  <script>
+    (function () {
+      try {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark = stored ? stored === 'dark' : prefersDark;
+        document.documentElement.classList.toggle('dark', isDark);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body class="bg-lightc-bg text-lightc-text dark:bg-ink dark:text-textc font-sans antialiased">
+
+  <a href="#home" class="sr-only focus:not-sr-only focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:text-white focus:text-sm">
+    Skip to content
+  </a>
+
+  <!-- NAVBAR -->
+  <header id="navbar" class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-all duration-300">
+    <nav aria-label="Main navigation" class="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-6 lg:px-8">
+      <a href="#home" class="inline-flex items-center gap-2 font-mono text-sm font-semibold tracking-[0.2em]">
+        <span class="inline-block h-2 w-2 rounded-full bg-accent shadow-glow"></span>
+        <span>THINZAR</span>
+      </a>
+
+      <ul class="hidden items-center gap-1 md:flex">
+        <li><a href="#home" class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-lightc-muted transition-colors hover:bg-black/5 hover:text-lightc-text dark:text-textc-muted dark:hover:bg-white/5 dark:hover:text-textc">Home</a></li>
+        <li><a href="#about" class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-lightc-muted transition-colors hover:bg-black/5 hover:text-lightc-text dark:text-textc-muted dark:hover:bg-white/5 dark:hover:text-textc">About</a></li>
+        <li><a href="#skills" class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-lightc-muted transition-colors hover:bg-black/5 hover:text-lightc-text dark:text-textc-muted dark:hover:bg-white/5 dark:hover:text-textc">Skills</a></li>
+        <li><a href="#projects" class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-lightc-muted transition-colors hover:bg-black/5 hover:text-lightc-text dark:text-textc-muted dark:hover:bg-white/5 dark:hover:text-textc">Projects</a></li>
+        <li><a href="#experience" class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-lightc-muted transition-colors hover:bg-black/5 hover:text-lightc-text dark:text-textc-muted dark:hover:bg-white/5 dark:hover:text-textc">Experience</a></li>
+        <li><a href="#contact" class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-lightc-muted transition-colors hover:bg-black/5 hover:text-lightc-text dark:text-textc-muted dark:hover:bg-white/5 dark:hover:text-textc">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button id="theme-toggle" type="button" aria-label="Toggle theme"
+          class="relative inline-flex h-9 w-9 items-center justify-center rounded-xl border border-lightc-border bg-white/60 text-lightc-text transition-colors hover:bg-white dark:border-ink-border dark:bg-white/5 dark:text-textc dark:hover:bg-white/10">
+          <svg id="icon-sun" class="h-4 w-4 absolute hidden dark:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg id="icon-moon" class="h-4 w-4 absolute dark:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <!-- View Skills (replaces Download CV) -->
+        <a href="#skills"
+           class="hidden items-center gap-2 rounded-xl btn-gradient px-3.5 py-2 text-sm font-medium text-white shadow-[0_6px_24px_-8px_rgba(139,92,246,0.7)] transition-all hover:-translate-y-0.5 sm:inline-flex">
+          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          View Skills
+        </a>
+
+        <button id="mobile-btn" type="button" aria-label="Open menu" aria-expanded="false"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-lightc-border bg-white/60 text-lightc-text md:hidden dark:border-ink-border dark:bg-white/5 dark:text-textc">
+          <svg id="icon-menu" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          <svg id="icon-close" class="h-4 w-4 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-overlay" class="fixed inset-0 z-40 hidden bg-ink/60 backdrop-blur-sm md:hidden dark:bg-black/60"></div>
+  <div id="mobile-menu" class="fixed left-4 right-4 top-20 z-40 rounded-2xl border border-lightc-border bg-lightc-card p-4 shadow-soft md:hidden dark:border-ink-border dark:bg-ink-card">
+    <ul class="flex flex-col">
+      <li><a href="#home"     class="mobile-link block rounded-xl px-4 py-3 text-base font-medium hover:bg-black/5 dark:hover:bg-white/5">Home</a></li>
+      <li><a href="#about"    class="mobile-link block rounded-xl px-4 py-3 text-base font-medium hover:bg-black/5 dark:hover:bg-white/5">About</a></li>
+      <li><a href="#skills"   class="mobile-link block rounded-xl px-4 py-3 text-base font-medium hover:bg-black/5 dark:hover:bg-white/5">Skills</a></li>
+      <li><a href="#projects" class="mobile-link block rounded-xl px-4 py-3 text-base font-medium hover:bg-black/5 dark:hover:bg-white/5">Projects</a></li>
+      <li><a href="#experience" class="mobile-link block rounded-xl px-4 py-3 text-base font-medium hover:bg-black/5 dark:hover:bg-white/5">Experience</a></li>
+      <li><a href="#contact"  class="mobile-link block rounded-xl px-4 py-3 text-base font-medium hover:bg-black/5 dark:hover:bg-white/5">Contact</a></li>
+    </ul>
+    <a href="#skills" class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl btn-gradient px-4 py-3 text-sm font-medium text-white">
+      <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      View Skills
+    </a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="home" class="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-28">
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+        <div class="absolute inset-0 bg-grid-light [background-size:48px_48px] opacity-[0.5] dark:bg-grid-dark dark:opacity-[0.35]"></div>
+        <div class="absolute -top-40 -left-24 h-[420px] w-[420px] rounded-full bg-accent/25 blur-[120px] animate-gradient-shift"></div>
+        <div class="absolute top-10 right-0 h-[360px] w-[360px] rounded-full bg-accent-cyan/20 blur-[120px] animate-gradient-shift"></div>
+        <div class="absolute top-1/3 left-1/2 h-[300px] w-[500px] -translate-x-1/2 rounded-full bg-gradient-to-r from-accent/20 via-fuchsia-300/20 to-accent-cyan/20 blur-[100px] dark:opacity-0"></div>
+        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-lightc-bg dark:to-ink"></div>
+      </div>
+
+      <div class="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div class="grid items-center gap-14 lg:grid-cols-[1.05fr,0.95fr] lg:gap-16">
+
+          <div>
+            <div class="hero-in hero-in-1 inline-flex items-center gap-2 rounded-full border border-lightc-border bg-white/80 px-3 py-1 text-xs font-medium tracking-wide text-lightc-muted dark:border-ink-border dark:bg-white/5 dark:text-textc-muted">
+              <span class="relative flex h-2 w-2">
+                <span class="absolute inline-flex h-full w-full animate-pulse-dot rounded-full bg-emerald-400/70"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+              </span>
+                           Open to Work
+            </div>
+
+            <p class="hero-in hero-in-2 mt-3 font-mono text-xs tracking-wide text-lightc-muted dark:text-textc-muted">
+              <a href="mailto:thinzarphyowai892@gmail.com" class="transition-colors hover:text-accent">
+                Email: thinzarphyowai892@gmail.com
+              </a>
+            </p>
+
+            <h1 class="hero-in hero-in-2 mt-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              Hi, I'm <span class="bg-gradient-to-r from-accent via-fuchsia-500 to-accent-cyan bg-clip-text text-transparent">Thinzar Phyo Wai</span>.
+            </h1>
+
+            <p class="hero-in hero-in-3 mt-3 font-mono text-sm uppercase tracking-[0.2em] text-accent">
+              IT Engineer
+            </p>
+
+            <p class="hero-in hero-in-3 mt-4 text-lg font-medium sm:text-xl">
+              Building practical solutions with software, systems, databases and AI.
+            </p>
+
+            <p class="hero-in hero-in-4 mt-4 max-w-xl text-sm leading-relaxed text-lightc-muted dark:text-textc-muted sm:text-base">
+              I am a Computing student at Edinburgh Napier University with hands-on experience in software development, database systems, AI/data projects and responsive web development. I am currently developing my technical skills and preparing for a career as an IT Engineer.
+            </p>
+
+            <div class="hero-in hero-in-5 mt-8 flex flex-wrap items-center gap-3">
+              <a href="#projects" class="inline-flex items-center gap-2 rounded-xl btn-gradient px-4 py-2.5 text-sm font-medium text-white shadow-[0_6px_24px_-8px_rgba(139,92,246,0.7)] transition-all hover:-translate-y-0.5">
+                View Projects
+                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#skills" class="outline-gradient inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium text-lightc-text transition-all hover:-translate-y-0.5 dark:text-textc">
+                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                View Skills
+              </a>
+            </div>
+
+            <div class="hero-in hero-in-6 mt-8 flex flex-wrap items-center gap-6">
+              <ul class="flex items-center gap-3">
+                <li>
+                  <a href="https://github.com/Thinzar-Phyo-Wai" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                     class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-lightc-border bg-white/60 text-lightc-muted transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent dark:border-ink-border dark:bg-white/5 dark:text-textc-muted dark:hover:text-accent">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/thin-zar-phyo-wai-440b25388" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                     class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-lightc-border bg-white/60 text-lightc-muted transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent dark:border-ink-border dark:bg-white/5 dark:text-textc-muted dark:hover:text-accent">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:thinzarphyowai892@gmail.com" aria-label="Email"
+                     class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-lightc-border bg-white/60 text-lightc-muted transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent dark:border-ink-border dark:bg-white/5 dark:text-textc-muted dark:hover:text-accent">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+                  </a>
+                </li>
+              </ul>
+              <span class="inline-flex items-center gap-1.5 text-xs text-lightc-muted dark:text-textc-muted">
+                <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 7-8 12-8 12S4 17 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                in Myanmar
+              </span>
+            </div>
+          </div>
+
+          <div class="lg:pl-4">
+            <div class="hero-in hero-terminal relative mx-auto max-w-sm lg:max-w-none">
+              <div aria-hidden="true" class="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-accent/30 via-fuchsia-300/20 to-accent-cyan/25 blur-2xl"></div>
+
+              <div class="overflow-hidden rounded-2xl border border-lightc-border bg-lightc-card/90 shadow-soft backdrop-blur-xl dark:border-ink-border dark:bg-ink-card/90">
+                <div class="relative">
+                  <img
+                    src="thinzar.jpg"
+                    alt="Portrait of Thinzar Phyo Wai"
+                    width="600"
+                    height="600"
+                    loading="eager"
+                    decoding="async"
+                    class="block aspect-square w-full object-cover"
+                  />
+                  <div aria-hidden="true" class="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  <div class="absolute inset-x-0 bottom-0 flex items-center justify-between p-4">
+                    <div>
+                      <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-accent-cyan">Thinzar Phyo Wai</p>
+                      <p class="text-sm font-semibold text-white">IT Engineer</p>
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-black/50 px-2.5 py-1 text-[10px] font-medium text-white backdrop-blur-sm">
+                      <span class="relative flex h-1.5 w-1.5">
+                        <span class="absolute inline-flex h-full w-full animate-pulse-dot rounded-full bg-emerald-400/70"></span>
+                        <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                      </span>
+                      Available
+                    </span>
+                  </div>
+                </div>
+
+                <div class="border-t border-lightc-border dark:border-ink-border">
+                  <div class="flex items-center gap-2 border-b border-lightc-border px-4 py-2.5 dark:border-ink-border">
+                    <span class="h-2.5 w-2.5 rounded-full bg-red-400/80"></span>
+                    <span class="h-2.5 w-2.5 rounded-full bg-yellow-400/80"></span>
+                    <span class="h-2.5 w-2.5 rounded-full bg-green-400/80"></span>
+                    <span class="ml-2 font-mono text-[11px] text-lightc-muted dark:text-textc-muted">thinzar@portfolio ~</span>
+                  </div>
+
+                  <div id="terminal-body" class="space-y-2.5 p-4 font-mono text-[13px] sm:p-5">
+                    <div class="terminal-line space-y-1" data-line="0">
+                      <div class="flex items-center gap-2">
+                        <span class="text-accent-cyan">&gt;</span>
+                        <span>whoami</span>
+                      </div>
+                      <div class="pl-5 text-lightc-muted dark:text-textc-muted">it_engineer</div>
+                    </div>
+
+                    <div class="terminal-line space-y-1" data-line="1">
+                      <div class="flex items-center gap-2">
+                        <span class="text-accent-cyan">&gt;</span>
+                        <span>focus</span>
+                      </div>
+                      <div class="pl-5 text-lightc-muted dark:text-textc-muted">software · systems · databases · ai</div>
+                    </div>
+
+                    <div class="flex items-center gap-2 pt-1">
+                      <span class="text-accent-cyan">&gt;</span>
+                      <span aria-hidden="true" class="inline-block h-3.5 w-2 bg-accent/80 cursor-blink"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-20 sm:py-24 lg:py-28">
+      <div class="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">About Me</p>
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+            <span class="bg-gradient-to-r from-accent via-fuchsia-500 to-accent-cyan bg-clip-text text-transparent">A motivated junior engineer, learning by building.</span>
+          </h2>
+        </div>
+
+        <div class="mt-12 grid gap-10 lg:grid-cols-[1.15fr,1fr] lg:gap-14">
+          <div class="reveal space-y-5 text-sm leading-relaxed text-lightc-muted dark:text-textc-muted sm:text-base">
+            <p>I am a Computing student at Edinburgh Napier University with an interest in software development, IT systems, databases, artificial intelligence and practical technology solutions.</p>
+            <p>Through academic projects and personal development, I have gained experience working with programming, databases, machine learning, web development and problem solving.</p>
+            <p>My goal is to start my career as a Junior IT Engineer / Junior System Engineer and continue developing strong technical and professional skills.</p>
+          </div>
+
+          <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <li class="reveal reveal-delay-1 group flex flex-col gap-3 rounded-2xl card-gradient-border bg-lightc-card p-4 transition-all hover:-translate-y-1 dark:border-ink-border dark:bg-ink-card">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent/15 to-accent-cyan/15 text-accent">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </span>
+              <div>
+                <p class="font-mono text-[11px] uppercase tracking-widest text-lightc-muted dark:text-textc-muted">Education</p>
+                <p class="mt-0.5 text-sm font-semibold tracking-tight">Edinburgh Napier University</p>
+              </div>
+            </li>
+            <li class="reveal reveal-delay-2 group flex flex-col gap-3 rounded-2xl card-gradient-border bg-lightc-card p-4 transition-all hover:-translate-y-1 dark:border-ink-border dark:bg-ink-card">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent/15 to-accent-cyan/15 text-accent">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>
+              </span>
+              <div>
+                <p class="font-mono text-[11px] uppercase tracking-widest text-lightc-muted dark:text-textc-muted">Focus</p>
+                <p class="mt-0.5 text-sm font-semibold tracking-tight">IT Engineering &amp; Software</p>
+              </div>
+            </li>
+            <li class="reveal reveal-delay-3 group flex flex-col gap-3 rounded-2xl card-gradient-border bg-lightc-card p-4 transition-all hover:-translate-y-1 dark:border-ink-border dark:bg-ink-card">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent/15 to-accent-cyan/15 text-accent">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 0 1 3 3v.5a3 3 0 0 1 3 3v.5a3 3 0 0 1 3 3v3a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-3a3 3 0 0 1 3-3v-.5a3 3 0 0 1 3-3V8a3 3 0 0 1 3-3z"/></svg>
+              </span>
+              <div>
+                <p class="font-mono text-[11px] uppercase tracking-widest text-lightc-muted dark:text-textc-muted">Interests</p>
+                <p class="mt-0.5 text-sm font-semibold tracking-tight">Systems, AI &amp; Data</p>
+              </div>
+            </li>
+            <li class="reveal reveal-delay-4 group flex flex-col gap-3 rounded-2xl card-gradient-border bg-lightc-card p-4 transition-all hover:-translate-y-1 dark:border-ink-border dark:bg-ink-card">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent/15 to-accent-cyan/15 text-accent">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </span>
+              <div>
+                <p class="font-mono text-[11px] uppercase tracking-widest text-lightc-muted dark:text-textc-muted">Career Goal</p>
+                <p class="mt-0.5 text-sm font-semibold tracking-tight">IT Engineer</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section-glow-light py-20 sm:py-24 lg:py-28">
+      <div class="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">Skills</p>
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+            <span class="bg-gradient-to-r from-accent via-fuchsia-500 to-accent-cyan bg-clip-text text-transparent">Technical Skills</span>
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed text-lightc-muted dark:text-textc-muted sm:text-base">
+            The languages, tools and technologies I work with across academic projects and personal learning.
+          </p>
+        </div>
+
+        <div id="skills-grid" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-20 sm:py-24 lg:py-28">
+      <div class="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">Featured Projects</p>
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+            <span class="bg-gradient-to-r from-accent via-fuchsia-500 to-accent-cyan bg-clip-text text-transparent">A selection of recent work.</span>
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed text-lightc-muted dark:text-textc-muted sm:text-base">
+            Academic and personal projects spanning AI, data, databases and web development.
+          </p>
+        </div>
+
+        <div id="projects-grid" class="mt-12 grid gap-5 md:grid-cols-2"></div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section id="capabilities" class="section-glow-light py-20 sm:py-24 lg:py-28">
+      <div class="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">Capabilities</p>
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+            <span class="bg-gradient-to-r from-accent via-fuchsia-500 to-accent-cyan bg-clip-text text-transparent">What I Can Do</span>
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed text-lightc-muted dark:text-textc-muted sm:text-base">
+            A realistic snapshot of the work I am ready to contribute to as a junior engineer.
+          </p>
+        </div>
+
+        <div id="capabilities-grid" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-20 sm:py-24 lg:py-28">
+      <div class="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">Experience</p>
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+            <span class="bg-gradient-to-r from-accent via-fuchsia-500 to-accent-cyan bg-clip-text text-transparent">Education &amp; Project Experience</span>
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed text-lightc-muted dark:text-textc-muted sm:text-base">
+            A timeline of my academic journey and hands-on project work.
+          </p>
+        </div>
+
+        <ol id="timeline" class="relative mx-auto mt-14 max-w-3xl">
+          <span aria-hidden="true" class="absolute left-3.5 top-2 h-[calc(100%-1rem)] w-px bg-gradient-to-b from-accent/60 via-lightc-border to-transparent sm:left-[1.65rem] dark:via-ink-border"></span>
+        </ol>
+      </div>
+    </section>
+
+    <!-- LEARNING -->
+    <section id="learning" class="section-glow-light py-20 sm:py-24 lg:py-28">
+      <div class="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">Continuous Development</p>
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+            <span class="bg-gradient-to-r from-accent via-fuchsia-500 to-accent-cyan bg-clip-text text-transparent">Currently Learning</span>
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed text-lightc-muted dark:text-textc-muted sm:text-base">
+            Areas I am actively studying to grow into a stronger junior engineer.
+          </p>
+        </div>
+
+        <ul id="learning-grid" class="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4"></ul>
+
+        <div class="reveal mx-auto mt-14 max-w-3xl text-center">
+          <p class="font-mono text-[11px] uppercase tracking-[0.25em] text-lightc-muted dark:text-textc-muted">Languages</p>
+          <ul class="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+            <li class="flex items-center gap-2 text-sm"><span class="font-medium tracking-tight">Burmese</span><span class="text-lightc-muted dark:text-textc-muted">· Native</span></li>
+            <li class="flex items-center gap-2 text-sm"><span class="font-medium tracking-tight">English</span><span class="text-lightc-muted dark:text-textc-muted">· Intermediate</span></li>
+            <li class="flex items-center gap-2 text-sm"><span class="font-medium tracking-tight">Japanese</span><span class="text-lightc-muted dark:text-textc-muted">· Beginner · Currently Learning</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 sm:py-24 lg:py-28">
+      <div class="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div class="reveal contact-panel relative overflow-hidden rounded-3xl border p-8 text-center sm:p-12 lg:p-16">
+          <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 dark:hidden">
+            <div class="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent/25 blur-[100px]"></div>
+            <div class="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-accent-cyan/25 blur-[100px]"></div>
+            <div class="absolute -bottom-24 left-0 h-56 w-56 rounded-full bg-fuchsia-300/30 blur-[100px]"></div>
+          </div>
+          <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 hidden dark:block">
+            <div class="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent/25 blur-[100px]"></div>
+            <div class="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-accent-cyan/20 blur-[100px]"></div>
+          </div>
+
+          <p class="font-mono text-xs uppercase tracking-[0.25em] text-accent">Get in Touch</p>
+          <h2 class="mt-4 text-3xl font-bold tracking-tight text-lightc-text sm:text-4xl lg:text-5xl dark:text-white">Let's build something useful.</h2>
+          <p class="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-lightc-muted sm:text-base dark:text-textc-muted">
+            I am currently interested in IT Engineer, Junior System Engineer and IT-related opportunities.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a href="mailto:thinzarphyowai892@gmail.com" class="inline-flex items-center gap-2 rounded-xl btn-gradient px-4 py-2.5 text-sm font-medium text-white shadow-[0_6px_24px_-8px_rgba(139,92,246,0.7)] transition-all hover:-translate-y-0.5">
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              Email Me
+            </a>
+            <a href="https://github.com/Thinzar-Phyo-Wai" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-lightc-border bg-white/80 px-4 py-2.5 text-sm font-medium text-lightc-text transition-all hover:-translate-y-0.5 hover:bg-white dark:border-ink-border dark:bg-white/5 dark:text-textc dark:hover:bg-white/10">
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/thin-zar-phyo-wai-440b25388" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-lightc-border bg-white/80 px-4 py-2.5 text-sm font-medium text-lightc-text transition-all hover:-translate-y-0.5 hover:bg-white dark:border-ink-border dark:bg-white/5 dark:text-textc dark:hover:bg-white/10">
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              LinkedIn
+            </a>
+            <a href="#skills" class="outline-gradient inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium text-lightc-text transition-all hover:-translate-y-0.5 dark:text-textc">
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              View Skills
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMAGE LIGHTBOX -->
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 p-4 backdrop-blur-sm">
+      <button type="button" id="lightbox-close" aria-label="Close image"
+        class="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      <img id="lightbox-img" alt="" class="max-h-[90vh] max-w-[92vw] rounded-lg object-contain shadow-2xl" />
+    </div>
+
+    <!-- VIDEO MODAL -->
+    <div id="video-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 p-4 backdrop-blur-sm">
+      <button type="button" id="video-close" aria-label="Close video"
+        class="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      <video id="video-player" controls playsinline class="max-h-[90vh] max-w-[92vw] rounded-lg shadow-2xl"></video>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-lightc-border py-10 dark:border-ink-border">
+    <div class="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-6 px-5 sm:flex-row sm:px-6 lg:px-8">
+      <div class="text-center sm:text-left">
+        <p class="text-sm font-semibold tracking-tight">© 2026 Thinzar Phyo Wai</p>
+      </div>
+      <ul class="flex items-center gap-3">
+        <li>
+          <a href="https://github.com/Thinzar-Phyo-Wai" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-lightc-border bg-white/60 text-lightc-muted transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent dark:border-ink-border dark:bg-white/5 dark:text-textc-muted dark:hover:text-accent">
+            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/thin-zar-phyo-wai-440b25388" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-lightc-border bg-white/60 text-lightc-muted transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent dark:border-ink-border dark:bg-white/5 dark:text-textc-muted dark:hover:text-accent">
+            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:thinzarphyowai892@gmail.com" aria-label="Email" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-lightc-border bg-white/60 text-lightc-muted transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent dark:border-ink-border dark:bg-white/5 dark:text-textc-muted dark:hover:text-accent">
+            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    /* 1. THEME TOGGLE */
+    (function () {
+      const toggle = document.getElementById('theme-toggle');
+      toggle.addEventListener('click', function () {
+        const isDark = document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
+        toggle.setAttribute('aria-label', 'Switch to ' + (isDark ? 'light' : 'dark') + ' mode');
+      });
+    })();
+
+    /* 2. NAVBAR SCROLL STATE */
+    (function () {
+      const navbar = document.getElementById('navbar');
+      let last = false;
+      function onScroll() {
+        const scrolled = window.scrollY > 20;
+        if (scrolled !== last) {
+          last = scrolled;
+          navbar.classList.toggle('border-b', scrolled);
+          navbar.classList.toggle('border-lightc-border/70', scrolled);
+          navbar.classList.toggle('dark:border-ink-border/70', scrolled);
+          navbar.classList.toggle('bg-lightc-bg/70', scrolled);
+          navbar.classList.toggle('dark:bg-ink/70', scrolled);
+          navbar.classList.toggle('backdrop-blur-xl', scrolled);
+          navbar.classList.toggle('border-transparent', !scrolled);
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    /* 3. MOBILE MENU */
+    (function () {
+      const btn = document.getElementById('mobile-btn');
+      const menu = document.getElementById('mobile-menu');
+      const overlay = document.getElementById('mobile-overlay');
+      const iconMenu = document.getElementById('icon-menu');
+      const iconClose = document.getElementById('icon-close');
+
+      function setOpen(open) {
+        menu.classList.toggle('open', open);
+        overlay.classList.toggle('hidden', !open);
+        iconMenu.classList.toggle('hidden', open);
+        iconClose.classList.toggle('hidden', !open);
+        btn.setAttribute('aria-expanded', String(open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      btn.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+      overlay.addEventListener('click', () => setOpen(false));
+      document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => setOpen(false)));
+      window.addEventListener('resize', () => { if (window.innerWidth >= 768) setOpen(false); });
+    })();
+
+    /* 4. TERMINAL TYPING */
+    (function () {
+      const lines = document.querySelectorAll('#terminal-body .terminal-line');
+      lines.forEach((line, i) => {
+        line.style.opacity = '0';
+        line.style.transform = 'translateY(6px)';
+        line.style.transition = 'opacity 350ms ease, transform 350ms ease';
+        setTimeout(() => {
+          line.style.opacity = '1';
+          line.style.transform = 'translateY(0)';
+        }, 500 + i * 550);
+      });
+    })();
+
+    /* 5. REVEAL ON SCROLL */
+    (function () {
+      const els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+      els.forEach(el => io.observe(el));
+    })();
+
+    /* 6. DATA */
+    const SKILL_GROUPS = [
+      {
+        title: 'Frontend',
+        icon: '<svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
+        accent: 'accent',
+        items: ['JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Framer Motion']
+      },
+      {
+        title: 'Programming',
+        icon: '<svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>',
+        accent: 'cyan',
+        items: ['Java', 'Python', 'JavaScript']
+      },
+      {
+        title: 'Database',
+        icon: '<svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>',
+        accent: 'accent',
+        items: ['MariaDB', 'SQL', 'MongoDB']
+      },
+      {
+        title: 'AI & Data',
+        icon: '<svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 0-5 5c0 1.5.66 2.85 1.7 3.75A5 5 0 0 0 7 15a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-1.7-4.25A5 5 0 0 0 17 7a5 5 0 0 0-5-5z"/></svg>',
+        accent: 'cyan',
+        items: ['Machine Learning', 'Data Analysis', 'Random Forest', 'SARIMAX', 'NLP']
+      },
+      {
+        title: 'Tools',
+        icon: '<svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6.3 6.3a2 2 0 1 0 2.9 2.9l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.9 2.9-2.9-2.9z"/></svg>',
+        accent: 'accent',
+        items: ['Git', 'GitHub', 'VS Code', 'Streamlit']
+      }
+    ];
+
+    const PROJECTS = [
+      {
+        title: 'Predictive Analytics for Seasonal Furniture Sales',
+        category: 'AI / Data / Machine Learning',
+        description: 'Developed a predictive analytics system for analyzing seasonal furniture sales and forecasting future sales using machine-learning and statistical forecasting techniques.',
+        technologies: ['Python', 'MongoDB', 'Random Forest', 'SARIMAX', 'Streamlit'],
+        features: [
+          'Sales data analysis',
+          'MongoDB database integration',
+          'Machine-learning prediction',
+          'Time-series forecasting',
+          'Interactive Streamlit dashboard'
+        ],
+        video: 'predict_furniture_sales.mp4',
+        demo: null,
+        demoLabel: 'Watch Demo'
+      },
+      {
+        title: 'Vintage Charm',
+        category: 'Web Development',
+        description: 'An interactive virtual gift website designed around a warm vintage aesthetic, combining responsive design with interactive JavaScript features.',
+        technologies: ['HTML', 'CSS', 'JavaScript', 'LocalStorage'],
+        features: ['Virtual gift generator', 'Love letters', 'Interactive crossword', 'LocalStorage', 'Responsive design'],
+        github: 'https://github.com/thinzarphyowai',
+        demo: 'https://thinzar-phyo-wai.github.io/vintage-charm/',
+        demoLabel: 'Live Demo'
+      },
+      {
+        title: 'DevOps World Population System with Team',
+        category: 'DevOps / Containerization',
+        description: 'A containerized world population data system built with Docker, designed to serve and manage population statistics through a reproducible, portable deployment workflow.',
+        technologies: ['Docker', 'Docker Compose', 'Linux', 'DevOps', 'World Population Dataset'],
+        features: [
+          'Containerized application setup',
+          'Dockerfile and image configuration',
+          'Docker Compose orchestration',
+          'Environment-based configuration',
+          'Portable deployment across environments'
+        ],
+        github: 'https://github.com/myo-papa-kyaw/Group1DevOpsCoursework',
+        demo: null,
+        demoLabel: 'View Project'
+      },
+      {
+        title: 'Zero-Shot & Few-Shot Prompt Engineering with Hugging Face',
+        category: 'AI / NLP / Prompt Engineering',
+        description: 'An applied NLP project comparing zero-shot, few-shot, and prompt-engineered prompting strategies using Hugging Face transformers. Model outputs are evaluated against reference summaries using ROUGE metrics (ROUGE-1, ROUGE-2, ROUGE-L, ROUGE-Lsum) and compiled into a side-by-side comparison table across all methods.',
+        technologies: ['Python', 'Hugging Face', 'Transformers', 'Pandas', 'ROUGE', 'NLP', 'Prompt Engineering'],
+        features: [
+          'Zero-shot prompting baseline',
+          'Few-shot prompting with in-context examples',
+          'Prompt-engineered variants (zero-shot and few-shot)',
+          'ROUGE-1, ROUGE-2, ROUGE-L and ROUGE-Lsum evaluation',
+          'Comparison table of all methods × all metrics'
+        ],
+        image: 'prompt-engineering-preview.png',
+        imageAlt: 'Comparison table showing ROUGE evaluation results across zero-shot, few-shot, and prompt-engineered methods',
+        github: null,
+        demo: 'lightbox',
+        demoLabel: 'View My Work'
+      },
+      {
+        title: 'Airport Database',
+        category: 'Database / SQL',
+        description: 'A relational MariaDB database built to manage aircraft, airplane models, FAA tests, and test records. Includes advanced SQL queries using correlated subqueries, joins across multiple tables, and aggregate functions to identify test records that fall below the average score for each airplane model.',
+        technologies: ['MariaDB', 'SQL', 'Relational Design', 'Subqueries', 'Aggregate Functions', 'Database CLI'],
+        features: [
+          'Normalized schema across Airplane, Airplane_Model, FAA_Test and Airplane_Test_Record tables',
+          'Multi-table JOINs linking registration numbers, models and test definitions',
+          'Correlated subqueries to compute per-model average test scores',
+          'Filtering records below the model average using nested SELECT',
+          'Aggregate functions (AVG, ROUND) for score analysis',
+          'Ordered result sets by model and test date'
+        ],
+        image: 'aircraft-database-preview.jpg',
+        imageAlt: 'MariaDB terminal showing a multi-table SQL query with correlated subqueries and the resulting aircraft test record table',
+        github: null,
+        demo: 'lightbox',
+        demoLabel: 'View My Work'
+      },
+      {
+        title: 'Certificate of Achievement in Linux Server Administration',
+        category: 'Certification / Linux',
+        description: 'Certificate of Achievement in Linux Server Administration. Covers core Linux server concepts including user and permission management, service configuration, networking fundamentals, package management, and command-line system administration.',
+        technologies: ['Linux', 'Bash', 'System Administration', 'Networking', 'Server Configuration'],
+        features: [
+          'Linux command-line proficiency',
+          'User and permission management',
+          'Service and daemon configuration',
+          'Networking fundamentals',
+          'Package management',
+          'Hands-on server administration'
+        ],
+        image: 'network_certificate.png',
+        imageAlt: 'Certificate of Achievement in Linux Server Administration awarded to Thinzar Phyo Wai on August 14, 2026',
+        github: null,
+        demo: 'lightbox',
+        demoLabel: 'View My Achievement'
+      }
+    ];
+
+    const CAPABILITIES = [
+      {
+        title: 'Software Development',
+        description: 'Build practical web and software solutions using modern development technologies.',
+        icon: '<svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>'
+      },
+      {
+        title: 'Database Systems',
+        description: 'Design relational databases, write SQL queries and work with MongoDB-based applications.',
+        icon: '<svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>'
+      },
+      {
+        title: 'AI & Data',
+        description: 'Work with structured datasets, predictive models and basic machine-learning techniques.',
+        icon: '<svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 0-5 5c0 1.5.66 2.85 1.7 3.75A5 5 0 0 0 7 15a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-1.7-4.25A5 5 0 0 0 17 7a5 5 0 0 0-5-5z"/></svg>'
+      },
+      {
+        title: 'IT Systems',
+        description: 'Understand software requirements, databases, system concepts and technical problem solving.',
+        icon: '<svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>'
+      }
+    ];
+
+    const TIMELINE = [
+      { year: '2025', title: 'HND in Computing', subtitle: 'Info Myanmar University' },
+      { year: '2025', title: 'Predictive Analytics Research Project', description: 'Developed a predictive analytics system for seasonal furniture sales.' },
+      { year: '2026 — Present', title: 'BSc Computing', subtitle: 'Edinburgh Napier University' },
+      { year: '2026', title: 'Web Development & AI Projects', description: 'Developing practical projects using modern web and AI technologies.' }
+    ];
+
+    const LEARNING = ['System Design', 'JavaScript', 'Java', 'Linux', 'Networking Fundamentals', 'Cloud Fundamentals', 'Japanese Language', 'IT Engineering Concepts'];
+
+    /* 7. HELPERS */
+    function el(html) {
+      const t = document.createElement('template');
+      t.innerHTML = html.trim();
+      return t.content.firstElementChild;
+    }
+
+    function escapeHTML(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    /* 8. RENDER FUNCTIONS */
+    (function renderSkills() {
+      const root = document.getElementById('skills-grid');
+      if (!root) return;
+      SKILL_GROUPS.forEach((g, i) => {
+        const accentClass = g.accent === 'cyan' ? 'text-accent-cyan' : 'text-accent';
+        const accentBg = g.accent === 'cyan'
+          ? 'bg-gradient-to-br from-accent-cyan/15 to-accent/15'
+          : 'bg-gradient-to-br from-accent/15 to-accent-cyan/15';
+        const card = el(`
+          <article class="reveal reveal-delay-${(i % 6) + 1} group rounded-2xl card-gradient-border bg-lightc-card p-5 transition-all hover:-translate-y-1 dark:border-ink-border dark:bg-ink-card sm:p-6">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl ${accentBg} ${accentClass}">
+                ${g.icon}
+              </span>
+              <h3 class="text-base font-semibold tracking-tight">${escapeHTML(g.title)}</h3>
+            </div>
+            <ul class="mt-4 flex flex-wrap gap-1.5">
+              ${g.items.map(item => `<li class="chip-gradient-border rounded-lg bg-black/[0.03] px-2.5 py-1 text-xs font-medium text-lightc-muted transition-colors hover:text-accent dark:border-ink-border dark:bg-white/5 dark:text-textc-muted dark:hover:text-accent">${escapeHTML(item)}</li>`).join('')}
+            </ul>
+          </article>
+        `);
+        root.appendChild(card);
+      });
+    })();
+
+    (function renderProjects() {
+      const root = document.getElementById('projects-grid');
+      if (!root) return;
+      PROJECTS.forEach((p, idx) => {
+        const num = String(idx + 1).padStart(2, '0');
+
+        const techTags = p.technologies.map(t =>
+          `<li class="chip-gradient-border rounded-md bg-black/[0.03] px-2 py-0.5 text-[11px] font-medium text-lightc-muted dark:border-ink-border dark:bg-white/5 dark:text-textc-muted">${escapeHTML(t)}</li>`
+        ).join('');
+
+        const features = p.features.map(f =>
+          `<li class="flex items-start gap-2 text-sm text-lightc-muted dark:text-textc-muted">
+             <span aria-hidden="true" class="mt-2 inline-block h-1 w-1 flex-shrink-0 rounded-full bg-accent"></span>
+             <span>${escapeHTML(f)}</span>
+           </li>`
+        ).join('');
+
+        const githubBtn = p.github
+          ? `<a href="${p.github}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 rounded-lg border border-lightc-border bg-white/60 px-3 py-1.5 text-xs font-medium text-lightc-text transition-colors hover:border-accent/40 hover:text-accent dark:border-ink-border dark:bg-white/5 dark:text-textc dark:hover:text-accent">
+               <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+               GitHub
+             </a>`
+          : '';
+
+        let demoBtn = '';
+
+        if (p.video) {
+          demoBtn += `
+            <button type="button"
+              data-video-src="${escapeHTML(p.video)}"
+              data-video-poster="${escapeHTML(p.videoPoster || '')}"
+              class="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-accent/15 to-accent-cyan/15 px-3 py-1.5 text-xs font-medium text-accent transition-colors hover:from-accent/25 hover:to-accent-cyan/25">
+              <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              ${escapeHTML(p.demoLabel || 'Watch Demo')}
+            </button>`;
+        }
+
+        if (p.demo === 'lightbox' && p.image) {
+          demoBtn += `
+            <button type="button"
+              data-lightbox-src="${escapeHTML(p.image)}"
+              data-lightbox-alt="${escapeHTML(p.imageAlt || p.title)}"
+              class="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-accent/15 to-accent-cyan/15 px-3 py-1.5 text-xs font-medium text-accent transition-colors hover:from-accent/25 hover:to-accent-cyan/25">
+              <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              ${escapeHTML(p.demoLabel || 'View Project')}
+            </button>`;
+        } else if (p.demo && p.demo !== 'lightbox') {
+          demoBtn += `
+            <a href="${escapeHTML(p.demo)}" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-accent/15 to-accent-cyan/15 px-3 py-1.5 text-xs font-medium text-accent transition-colors hover:from-accent/25 hover:to-accent-cyan/25">
+              <svg class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              ${escapeHTML(p.demoLabel || 'Live Demo')}
+            </a>`;
+        }
+
+        const card = el(`
+          <article class="reveal reveal-delay-${(idx % 4) + 1} group relative flex flex-col overflow-hidden rounded-2xl card-gradient-border bg-lightc-card transition-all duration-300 hover:-translate-y-1.5 dark:border-ink-border dark:bg-ink-card">
+            <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style="background: radial-gradient(600px circle at 50% 0%, rgba(139,92,246,0.10), transparent 45%)"></div>
+
+            <div class="relative flex items-center justify-between border-b border-lightc-border px-5 py-4 dark:border-ink-border">
+              <span class="font-mono text-xs tracking-widest text-accent">${num}</span>
+              <span class="rounded-full border border-lightc-border bg-gradient-to-r from-accent/5 to-accent-cyan/5 px-2.5 py-0.5 text-[11px] font-medium text-lightc-muted dark:border-ink-border dark:bg-transparent dark:text-textc-muted">${escapeHTML(p.category)}</span>
+            </div>
+
+            <div class="flex flex-1 flex-col p-5 sm:p-6">
+              <h3 class="text-lg font-semibold tracking-tight">${escapeHTML(p.title)}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-lightc-muted dark:text-textc-muted">${escapeHTML(p.description)}</p>
+
+              <div class="mt-4">
+                <p class="mb-2 font-mono text-[11px] uppercase tracking-widest text-lightc-muted dark:text-textc-muted">Technologies</p>
+                <ul class="flex flex-wrap gap-1.5">${techTags}</ul>
+              </div>
+
+              <div class="mt-4">
+                <p class="mb-2 font-mono text-[11px] uppercase tracking-widest text-lightc-muted dark:text-textc-muted">Key Features</p>
+                <ul class="space-y-1.5">${features}</ul>
+              </div>
+
+              <div class="mt-6 flex flex-wrap items-center gap-2 border-t border-lightc-border pt-4 dark:border-ink-border">
+                ${githubBtn}
+                ${demoBtn}
+                <span aria-hidden="true" class="ml-auto inline-flex items-center text-lightc-muted transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 dark:text-textc-muted">
+                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </span>
+              </div>
+            </div>
+          </article>
+        `);
+        root.appendChild(card);
+      });
+    })();
+
+    (function renderCapabilities() {
+      const root = document.getElementById('capabilities-grid');
+      if (!root) return;
+      CAPABILITIES.forEach((c, i) => {
+        const card = el(`
+          <article class="reveal reveal-delay-${(i % 4) + 1} group rounded-2xl card-gradient-border bg-lightc-card p-5 transition-all hover:-translate-y-1 dark:border-ink-border dark:bg-ink-card">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent/15 to-accent-cyan/15 text-accent">
+              ${c.icon}
+            </span>
+            <h3 class="mt-4 text-base font-semibold tracking-tight">${escapeHTML(c.title)}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-lightc-muted dark:text-textc-muted">${escapeHTML(c.description)}</p>
+          </article>
+        `);
+        root.appendChild(card);
+      });
+    })();
+
+    (function renderTimeline() {
+      const root = document.getElementById('timeline');
+      if (!root) return;
+      TIMELINE.forEach((item, i) => {
+        const li = el(`
+          <li class="reveal reveal-delay-${(i % 6) + 1} relative pl-10 sm:pl-14">
+            <span aria-hidden="true" class="absolute left-2 top-1.5 flex h-4 w-4 items-center justify-center sm:left-5">
+              <span class="absolute h-4 w-4 rounded-full bg-accent/20"></span>
+              <span class="relative h-2 w-2 rounded-full bg-accent"></span>
+            </span>
+            <div class="pb-10">
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span class="font-mono text-xs font-semibold tracking-widest text-accent">${escapeHTML(item.year)}</span>
+                <span class="h-px w-6 bg-lightc-border dark:bg-ink-border" aria-hidden="true"></span>
+                <h3 class="text-base font-semibold tracking-tight">${escapeHTML(item.title)}</h3>
+              </div>
+              ${item.subtitle ? `<p class="mt-1 text-sm font-medium text-lightc-muted dark:text-textc-muted">${escapeHTML(item.subtitle)}</p>` : ''}
+              ${item.description ? `<p class="mt-2 text-sm leading-relaxed text-lightc-muted dark:text-textc-muted">${escapeHTML(item.description)}</p>` : ''}
+            </div>
+          </li>
+        `);
+        root.appendChild(li);
+      });
+    })();
+
+    (function renderLearning() {
+      const root = document.getElementById('learning-grid');
+      if (!root) return;
+      LEARNING.forEach((item, i) => {
+        const li = el(`
+          <li class="reveal reveal-delay-${(i % 4) + 1} flex items-center gap-2 rounded-2xl card-gradient-border bg-lightc-card px-3.5 py-3 transition-all hover:-translate-y-1 dark:border-ink-border dark:bg-ink-card">
+            <span class="relative flex h-2 w-2 flex-shrink-0">
+              <span class="absolute inline-flex h-full w-full animate-pulse-dot rounded-full bg-accent-cyan/70"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-accent-cyan"></span>
+            </span>
+            <span class="text-sm font-medium tracking-tight">${escapeHTML(item)}</span>
+          </li>
+        `);
+        root.appendChild(li);
+      });
+
+      const els = document.querySelectorAll('.reveal:not(.is-visible)');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+        els.forEach(el => io.observe(el));
+      } else {
+        els.forEach(el => el.classList.add('is-visible'));
+      }
+    })();
+
+    /* 9. ACTIVE NAV LINK */
+    (function () {
+      const links = document.querySelectorAll('.nav-link');
+      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+      function setActive() {
+        const y = window.scrollY + 100;
+        let current = sections[0];
+        sections.forEach(sec => {
+          if (sec.offsetTop <= y) current = sec;
+        });
+        links.forEach(a => {
+          const isActive = a.getAttribute('href') === '#' + current.id;
+          a.classList.toggle('text-accent', isActive);
+          a.classList.toggle('bg-accent/10', isActive);
+        });
+      }
+      window.addEventListener('scroll', setActive, { passive: true });
+      setActive();
+    })();
+
+    /* 10. IMAGE LIGHTBOX */
+    (function initLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      const closeBtn = document.getElementById('lightbox-close');
+      if (!lightbox || !img || !closeBtn) return;
+
+      function open(src, alt) {
+        img.onerror = () => {
+          img.onerror = null;
+          img.alt = 'Image not found: ' + src;
+          img.removeAttribute('src');
+        };
+        img.src = src;
+        img.alt = alt || '';
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+        img.removeAttribute('src');
+      }
+
+      document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('[data-lightbox-src]');
+        if (trigger) {
+          e.preventDefault();
+          open(
+            trigger.getAttribute('data-lightbox-src'),
+            trigger.getAttribute('data-lightbox-alt')
+          );
+        }
+      });
+
+      closeBtn.addEventListener('click', close);
+      lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
+
+    /* 11. VIDEO MODAL */
+    (function initVideoModal() {
+      const modal = document.getElementById('video-modal');
+      const player = document.getElementById('video-player');
+      const closeBtn = document.getElementById('video-close');
+      if (!modal || !player || !closeBtn) return;
+
+      function open(src, poster) {
+        player.src = src;
+        if (poster) {
+          player.poster = poster;
+        } else {
+          player.removeAttribute('poster');
+        }
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        player.pause();
+        player.removeAttribute('src');
+        player.load();
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('[data-video-src]');
+        if (trigger) {
+          e.preventDefault();
+          open(
+            trigger.getAttribute('data-video-src'),
+            trigger.getAttribute('data-video-poster')
+          );
+        }
+      });
+
+      closeBtn.addEventListener('click', close);
+      modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
+  </script>
+</body>
+</html>
